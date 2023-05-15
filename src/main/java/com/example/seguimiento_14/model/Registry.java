@@ -1,6 +1,5 @@
 package com.example.seguimiento_14.model;
 
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -10,7 +9,6 @@ public class Registry {
     public double amount;
     public String description;
     public Type typeC;
-
     public Calendar date;
 
     public Registry(double amount, String description, Type typeC, String date) {
@@ -56,7 +54,11 @@ public class Registry {
         this.typeC = typeC;
     }
 
-    public Calendar getDate() {
+    public String getDate() {
+        return String.valueOf(date.getTime());
+    }
+
+    public Calendar getDates(){
         return date;
     }
 

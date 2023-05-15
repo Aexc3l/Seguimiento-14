@@ -1,7 +1,6 @@
 package com.example.seguimiento_14;
 
-import com.example.seguimiento_14.controller.RegisterController;
-import com.example.seguimiento_14.model.RegistryList;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -31,8 +30,6 @@ public class MainApp extends Application {
             ex.printStackTrace();
         }
     }
-
-
 
     public static void main(String[] args) {
         launch();

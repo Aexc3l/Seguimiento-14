@@ -1,9 +1,7 @@
 package com.example.seguimiento_14.controller;
 
 import com.example.seguimiento_14.MainApp;
-import com.example.seguimiento_14.model.Registry;
-import com.example.seguimiento_14.model.RegistryList;
-import com.example.seguimiento_14.model.Type;
+import com.example.seguimiento_14.model.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -13,7 +11,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.net.URL;
-import java.util.Calendar;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
@@ -30,7 +27,7 @@ public class MainController implements Initializable {
     private TableColumn<Registry, String> descriptionColumn;
 
     @FXML
-    private TableColumn<Registry, Calendar> dateColumn;
+    private TableColumn<Registry, String> dateColumn;
 
     @FXML
     private Label balanceId;
@@ -57,31 +54,25 @@ public class MainController implements Initializable {
 
 
         financeTable.setItems(RegistryList.getInstance().getRegistries());
+        dateColumn.setSortType(TableColumn.SortType.DESCENDING);
+        financeTable.getSortOrder().add(dateColumn);
+        financeTable.sort();
         String sc = balanceId.getText();
         balanceId.setText(sc + RegistryList.getInstance().getBalance());
 
         registerShow.setOnAction(action -> {
             financeTable.setItems(RegistryList.getInstance().getRegistries());
             dateColumn.setSortType(TableColumn.SortType.DESCENDING);
-            typeColumn.setSortType(TableColumn.SortType.DESCENDING);
-            descriptionColumn.setSortType(TableColumn.SortType.DESCENDING);
-            amountColumn.setSortType(TableColumn.SortType.DESCENDING);
         });
 
         registerShowC.setOnAction(action -> {
             financeTable.setItems(RegistryList.getInstance().getCost());
             dateColumn.setSortType(TableColumn.SortType.DESCENDING);
-            typeColumn.setSortType(TableColumn.SortType.DESCENDING);
-            descriptionColumn.setSortType(TableColumn.SortType.DESCENDING);
-            amountColumn.setSortType(TableColumn.SortType.DESCENDING);
         });
 
         registerShowInc.setOnAction(action -> {
             financeTable.setItems(RegistryList.getInstance().getIncomes());
             dateColumn.setSortType(TableColumn.SortType.DESCENDING);
-            typeColumn.setSortType(TableColumn.SortType.DESCENDING);
-            descriptionColumn.setSortType(TableColumn.SortType.DESCENDING);
-            amountColumn.setSortType(TableColumn.SortType.DESCENDING);
         });
 
         homePage.setOnAction(action -> {

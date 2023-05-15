@@ -6,14 +6,9 @@ import com.example.seguimiento_14.model.RegistryList;
 import com.example.seguimiento_14.model.Type;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -101,7 +96,6 @@ public class RegisterController implements Initializable {
         Registry registry = new Registry(value, desc, Type.COST, date);
         if (registry != null) {
             RegistryList.getInstance().getRegistries().add(registry);
-            System.out.println(RegistryList.getInstance().getRegistries().toString());
         }
         setAllDisabled();
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -143,7 +137,6 @@ public class RegisterController implements Initializable {
         alert.setTitle("Success");
         alert.setContentText("Registration has been done");
         alert.showAndWait();
-        System.out.println(RegistryList.getInstance().getRegistries().toString());
         deleteRegister.setDisable(false);
         return;
     }

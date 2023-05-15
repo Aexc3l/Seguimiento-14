@@ -1,9 +1,7 @@
 package com.example.seguimiento_14.model;
 
-import javafx.beans.value.ObservableListValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -26,7 +24,7 @@ public class RegistryList {
     public boolean delete(String date, double quantity, String description) {
         Calendar date1 = convertStringtoCalendar(date);
         for (int i = 0; i < registries.size(); i++){
-            if(date1.getTime().compareTo(registries.get(i).getDate().getTime()) == 0){
+            if(date1.getTime().compareTo(registries.get(i).getDates().getTime()) == 0){
                 if(quantity == registries.get(i).getAmount()){
                     if(description.equalsIgnoreCase(registries.get(i).getDescription())){
                         registries.remove(i);
